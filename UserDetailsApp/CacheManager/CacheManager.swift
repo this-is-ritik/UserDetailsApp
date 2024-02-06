@@ -17,6 +17,10 @@ class CacheManager {
     }
 
     func loadData(forKey key: String) -> Data? {
-        return UserDefaults.standard.value(forKey: key) as? Data
+        let data = UserDefaults.standard.value(forKey: key) as? Data
+        guard let data else {
+            return nil
+        }
+        return data
     }
 }

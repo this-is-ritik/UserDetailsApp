@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,18 +16,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="393" height="105"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="atk-rB-365">
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="atk-rB-365">
                         <rect key="frame" x="16" y="10" width="361" height="85"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cLD-OG-5HI">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="85"/>
+                                <rect key="frame" x="0.0" y="17.666666666666671" width="50" height="50"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ntZ-7p-mwY">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="17.666666666666668"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10z-Ps-9gZ">
-                                        <rect key="frame" x="0.0" y="17.666666666666671" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="IkZ-j5-WxX">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -45,15 +41,7 @@
                                             <constraint firstAttribute="trailing" secondItem="IkZ-j5-WxX" secondAttribute="trailing" id="wYh-9Y-MLd"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="81X-fd-Umi">
-                                        <rect key="frame" x="0.0" y="67.666666666666671" width="50" height="17.333333333333329"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="81X-fd-Umi" firstAttribute="width" secondItem="ntZ-7p-mwY" secondAttribute="width" id="DqG-TY-gzc"/>
-                                    <constraint firstItem="81X-fd-Umi" firstAttribute="height" secondItem="ntZ-7p-mwY" secondAttribute="height" id="oeH-ev-ebM"/>
-                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aES-DZ-JNr">
                                 <rect key="frame" x="58" y="0.0" width="303" height="85"/>

@@ -58,7 +58,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let data = self.viewModel.model?.data?[indexPath.section] else {return UITableViewCell()}
+        guard let data = self.viewModel.model?.data?[safe: indexPath.section] else {return UITableViewCell()}
         if let cell = tableView.dequeueReusableCell(withIdentifier: UserDetailTVC.reuseIdentifier, for: indexPath) as? UserDetailTVC {
             cell.configure(with: data)
             cell.selectionStyle = .none
@@ -72,7 +72,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let data = self.viewModel.model?.data?[indexPath.section] else {return}
+        guard let data = self.viewModel.data?[safe: indexPath.section] else {return}
         self.openDetails(with: data)
     }
 }

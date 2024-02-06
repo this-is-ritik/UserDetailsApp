@@ -12,7 +12,7 @@ struct UserData: Codable {
     let perPage: Int?
     let total: Int?
     let totalPages: Int?
-    let data: [User]?
+    var data: [User]?
     let support: Support?
 
     enum CodingKeys: String, CodingKey {
@@ -24,7 +24,7 @@ struct UserData: Codable {
         case support
     }
     struct User: Codable {
-        let id: Int?
+        let id: Int64?
         let email: String?
         let firstName: String?
         let lastName: String?

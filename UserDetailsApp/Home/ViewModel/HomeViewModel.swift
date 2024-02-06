@@ -20,7 +20,13 @@ extension HomeViewDelegate {
 class HomeViewModel {
     
     weak var delegate: HomeViewDelegate?
-    var model: UserData?
+    var model: UserData? {
+        didSet {
+            self.data = self.model?.data
+        }
+    }
+    
+    var data: [UserData.User]?
     
     private let apiUrl = URL(string: AppConstants.URL.homeApiUrl.value)!
     
@@ -54,15 +60,28 @@ class HomeViewModel {
                 let model = try JSONDecoder().decode(UserData.self, from: data)
                 self.model = model
                 self.delegate?.updateData()
+                return
             } catch {
-                DispatchQueue.main.async {
-                    self.delegate?.showErrorView()
-                }
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.delegate?.showErrorView()
+                print("error in decoding cached data \(error)")
             }
         }
+        Task {
+            await MainActor.run(body: {
+                self.fetchFromCoreData()
+            })
+        }
+    }
+    
+    @MainActor
+    private func fetchFromCoreData() {
+        guard let data = UserCoreDataManager.sharedInstance.loadUsers() else { return }
+        self.data = data.compactMap({
+            return UserData.User(id: $0.id, email: $0.email, firstName: $0.first_name, lastName: $0.last_name, avatar: $0.avatar)
+        })
+        guard self.data != nil else {
+            self.delegate?.showErrorView()
+            return
+        }
+        self.delegate?.updateData()
     }
 }
